@@ -76,7 +76,7 @@ def build_model(parameters,embedding_matrix =None, weightsPath = None):
 	bilstm_word_d = Dropout(dropout)(bilstm_word)
 
 	dense = TimeDistributed(Dense(tag_label_size))(bilstm_word_d)
-	crf = ChainCRF()
+	crf = ChainCRF()def shared(shape, name):
 	crf_output = crf(dense)
 	#to accoutn for gradient clipping
 	#info on nesterov http://stats.stackexchange.com/questions/211334/keras-how-does-sgd-learning-rate-decay-work

@@ -15,7 +15,8 @@ from model import build_model,train_model
 from keras.models import Sequential
 from keras.models import model_from_json
 import numpy
-import theano, keras
+import tensorflow as tf
+import keras
 import pickle
 
 # Read parameters from command line
@@ -143,7 +144,7 @@ dev_sentences = loader.load_sentences(opts.dev, lower, zeros)
 test_sentences = loader.load_sentences(opts.test, lower, zeros)
 
 
-# Use selected tagging scheme (IOB / IOBES)
+# Use selected tagging scheme (IOB / IOBES)theano
 update_tag_scheme(train_sentences, tag_scheme)
 update_tag_scheme(dev_sentences, tag_scheme)
 update_tag_scheme(test_sentences, tag_scheme)
